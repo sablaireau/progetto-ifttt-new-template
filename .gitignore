@@ -46,3 +46,5 @@ progetto-ifttt-SH.iml
 WEB-INF/web.xml
 
 web/WEB-INF/web.xml
+
+.idea/workspace.xml
