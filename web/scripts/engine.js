@@ -151,11 +151,129 @@ iftttApp.controller('createAccountController',  ['$scope', '$routeParams',
 
     }]);
 
-iftttApp.controller('GmailActionController',  ['$scope', '$routeParams',
-    function ($scope, $rootscope, $routeParams, $http, $resource) {
 
+
+
+iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routeParams', '$http', '$location',
+    function ($scope, $rootscope, $routeParams, $http, $resource, $location) {
+
+        $scope.triggerGmail = function(user)
+        {
+            if (angular.isUndefined(user))
+            {
+                //alert("Almost a field must be completed");
+                var loginDataSend =
+                {
+                    "sender:": "",
+                    "subject": ""
+                };
+                //alert(loginDataSend.pssword);
+                $.ajax({
+                    method: "post",
+                    url: "/MyServlet",
+                    data: loginDataSend,
+                    dataType: "json",
+                    success: console.log("la post ha avuto successo")
+                });
+                //return
+
+            }
+            else
+            {
+                var view = "SubGMailAction";
+
+                //alert(user.email + "  " + user.subjectReceive);
+
+                if ((angular.isDefined( user.email) && angular.isDefined( user.subjectReceive)) )
+                {
+                    //Cosa fare se la stringa è vuota? Magari vuole l'email con il subject vuoto?
+
+                    $scope.triggerGmailData = angular.copy(user);
+                    var loginDataSend =
+                    {
+                        "sender:": $scope.triggerGmailData.email,
+                        "subject": $scope.triggerGmailData.subjectReceive
+                    };
+                    //alert(loginDataSend.pssword);
+                    $.ajax({
+                        method: "post",
+                        url: "/MyServlet",
+                        data: loginDataSend,
+                        dataType: "json",
+                        success: console.log("la post ha avuto successo")
+                    });
+                    //return;
+                    //alert("Two defined");
+
+
+                }
+
+                else
+                {
+                    if (angular.isDefined( user.subjectReceive))
+                    {
+                        //Cosa fare se la stringa è vuota? Magari vuole l'email con il subject vuoto?
+
+                        $scope.triggerGmailData = angular.copy(user);
+                        var loginDataSend =
+                        {
+                            "sender:": "null",
+                            "subject:": $scope.triggerGmailData.subjectReceive
+                        };
+                        //alert(loginDataSend.pssword);
+                        $.ajax({
+                            method: "post",
+                            url: "/MyServlet",
+                            data: loginDataSend,
+                            dataType: "json",
+                            success: console.log("la post ha avuto successo")
+                        });
+                        //return;
+                        //alert(" subjectReceive ");
+
+
+                    }
+                    else
+                    {
+                        if (angular.isDefined( user.email))
+                        {
+                            //Cosa fare se la stringa è vuota? Magari vuole l'email con il subject vuoto?
+
+                            $scope.triggerGmailData = angular.copy(user);
+                            var loginDataSend =
+                            {
+                                "sender:": $scope.triggerGmailData.email,
+                                "subject": "null"
+                            };
+                            //alert(loginDataSend.pssword);
+                            $.ajax({
+                                method: "post",
+                                url: "/MyServlet",
+                                data: loginDataSend,
+                                dataType: "json",
+                                success: console.log("la post ha avuto successo")
+                            });
+                            //return;
+                            //alert("email defined");
+
+
+                        }
+                        else
+                        {
+                            alert("You have not completed the form");
+                            $location.path(view);
+                        }
+                    }
+
+                }
+                //alert("You have  completed the form");
+                //$location.path(view);
+            }
+
+        }
 
     }]);
+
 
 
 
