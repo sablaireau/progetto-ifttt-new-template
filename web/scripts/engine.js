@@ -38,7 +38,7 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/chooseChannel', {
         templateUrl: 'innerPages/choose-channel.html',
-        controller: 'chooseChannelController'
+        //controller: 'chooseChannelController'
     });
 
     $routeProvider.when('/loginPage', {
@@ -71,6 +71,11 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/ourTeam', {
         templateUrl: 'innerPages/ourTeam.html'
+    });
+
+    $routeProvider.when('/gMailTrigger', {
+        templateUrl: 'innerPages/gmailChannel/gMail_Trigger.html',
+        controller: 'GmailActionController'
     });
 
 
@@ -145,3 +150,14 @@ iftttApp.controller('createAccountController',  ['$scope', '$routeParams',
 
 
     }]);
+
+iftttApp.controller('GmailActionController',  ['$scope', '$routeParams',
+    function ($scope, $rootscope, $routeParams, $http, $resource) {
+
+
+    }]);
+
+
+
+
+
