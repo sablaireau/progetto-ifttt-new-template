@@ -272,6 +272,20 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
 
         }
 
+
+
+
+            $scope.check = 'NO';
+            $scope.checkAll = function(name)
+            {
+                if($scope.check === "YES")
+                $scope.check = 'NO';
+                else
+                    $scope.check = 'YES';
+                console.log(name);
+            };
+
+
     }]);
 
 
