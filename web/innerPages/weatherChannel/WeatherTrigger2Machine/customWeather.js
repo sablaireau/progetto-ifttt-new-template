@@ -260,72 +260,186 @@ $(function(){
         //alert(idCity);
         if (idCity == '0')
         {
-            var bla = $('#exampleInput').val();
             //$scope.errorButton= "Almost a field must be completed";
             alert("You have not found you ciry");
         }
         else
         {
             //Brute force resolution
-            /*checksunset    checksunrise   checktimeZonevar
-               0                0               0
-               0                0               1
-               0                1               0
-               0                1               1
+            /*checksunset    checksunrise   checktimeZonevar        DONE
+               0                0               0                   *
+               0                0               1                   *
+               0                1               0                   *
+               0                1               1                   *
                1                0               0
                1                0               1
                1                1               0
                1                1               1
-            *
             */
+
 
 
 
             //          0                                       0                                       0
             if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
             {
+                var timezone = $('#timezoneid').val();
+                var loginDataSend =
+                {
+                    "sender:":  idCity,
+                    "timezone": "timezone",
+                    "sunset":   "1",
+                    "sunrise":  "1"
+
+                }
+                sendingToServer(loginDataSend);
 
 
             }
-            //          0                                       0                                       1
-            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":unchecked"))
+            else
             {
+                //          0                                       0
+                if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked"))
+                {
+                    //var timezone = $('#timezoneid').val();
+                    var loginDataSend =
+                    {
+                        "sender:":  idCity,
+                        "timezone": "null",
+                        "sunset":   "1",
+                        "sunrise":  "1"
+
+                    }
+                    sendingToServer(loginDataSend);
+
+                }
+                else
+                {
+                    //          0                                       0
+                    if ($('#checksunset').is(":checked")  &&   $('#checktimeZonevar').is(":checked"))
+                    {
+                        var timezone = $('#timezoneid').val();
+                        var loginDataSend =
+                        {
+                            "sender:":  idCity,
+                            "timezone": "timezone",
+                            "sunset":   "1",
+                            "sunrise":  "0"
+
+                        }
+                        sendingToServer(loginDataSend);
+
+                    }
+                    else
+                    {
+                        //          0
+                        if ($('#checksunset').is(":checked"))
+                        {
+                            //var timezone = $('#timezoneid').val();
+                            var loginDataSend =
+                            {
+                                "sender:":  idCity,
+                                "timezone": "null",
+                                "sunset":   "1",
+                                "sunrise":  "0"
+
+                            }
+                            sendingToServer(loginDataSend);
+
+                        }
+                        else
+                        {
+                            //          1                                       0                                       1
+                            if ($('#checksunrise').is(":checked"))
+                            {
+                                //var timezone = $('#timezoneid').val();
+                                var loginDataSend =
+                                {
+                                    "sender:":  idCity,
+                                    "timezone": "null",
+                                    "sunset":   "0",
+                                    "sunrise":  "1"
+
+                                }
+                                sendingToServer(loginDataSend);
+
+                            }
+                            else
+                            {
+                                //          1                                       1                                         0
+                                if ($('#checktimeZonevar').is(":checked"))
+                                {
+                                    var timezone = $('#timezoneid').val();
+                                    var loginDataSend =
+                                    {
+                                        "sender:":  idCity,
+                                        "timezone": "timezone",
+                                        "sunset":   "0",
+                                        "sunrise":  "0"
+
+                                    }
+                                    sendingToServer(loginDataSend);
+
+                                }
+                                else
+                                {
+                                    //var timezone = $('#timezoneid').val();
+                                    var loginDataSend =
+                                    {
+                                        "sender:":  idCity,
+                                        "timezone": "null",
+                                        "sunset":   "0",
+                                        "sunrise":  "0"
+
+                                    }
+                                    sendingToServer(loginDataSend);
+
+                                }
+
+
+
+                            }
+
+
+
+                        }
+
+
+                    }
+                }
+
 
             }
-            //          0                                       1                                      0
-            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":checked"))
-            {
 
-            }
-            //          0                                       1                                       1
-            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":unchecked"))
-            {
-
-            }
-            //          1                                       0                                       0
-            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
-            {
-
-            }
-            //          1                                       0                                       1
-            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":unchecked"))
-            {
-
-            }
-            //          1                                       1                                         0
-            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":checked"))
-            {
-
-            }
             //          1                                       1                                          1
-            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":unchecked"))
-            {
-
-            }
 
 
+            url = "http://localhost:8080/#/gMailSucces";
+            window.location.replace(url);
 
         }
+        function sendingToServer (loginDataSend)
+        {
+            $.ajax({
+                method: "post",
+                url: "/MyServlet",
+                data: loginDataSend,
+                dataType: "json",
+                success: console.log("la post ha avuto successo")
+            });
+
+        }
+        /*
+         var loginDataSend =
+         {
+         "sender:":  idCity,
+         "timezone": "null",
+         "sunset":   "null",
+         "sunrise":  "null"
+
+         }
+         sendingToServer(loginDataSend);
+         */
 
 
     })
