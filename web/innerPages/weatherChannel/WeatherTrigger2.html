@@ -5,10 +5,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link href="css/custonWeatherTrigger1/customWeather.css" rel="stylesheet" type="text/css">
     -->
-    <script src="innerPages/weatherChannel/WeatherTriggerMachine/customWeather.js"></script>
+    <script src="innerPages/weatherChannel/WeatherTrigger2Machine/customWeather.js"></script>
 
 </head>
-<body ng-controller="customWeatherActionControllerTrigger1">
+<body ng-controller="customWeatherActionControllerTrigger2">
 
 
 <div class="container" style="padding-top: 6%">
@@ -62,40 +62,28 @@
                 </form>
                 -->
                 <br>
-                <b>Insert the time that you wish to recive the advise </b>  (Abilitation):
+                <b>Do you wish to have the sunrise </b>  (Abilitation):
                 <input
-                        id="checktime"
+                        id="checksunrise"
                         type="checkbox"
-                        ng-model="checkadvisetime"
-                        ng-change="checkadvisetimefunc(checkadvisetimevar)"
+                        ng-model="checkadvisesunrise"
+                        ng-change="checkadvisesunrisefunc(checkadvisetsunrisevar)"
+                >
+                <br>
+                <br>
+                <b>Do you wish to have the sunset </b>  (Abilitation):
+                <input
+                        id="checksunset"
+                        type="checkbox"
+                        ng-model="checkadvisesunset"
+                        ng-change="checkadvisetsunsetfunc(checkadvisesunsetvar)"
                 >
 
-                <form name="timeHour">
-                    <label>Hour:
-                        <input  id="timehourid" ng-disabled="!checkadvisetime"  type="number" name="input1" ng-model="trigger1input.value1"
-                               min="0" max="24" required>
-                    </label>
 
-
-                    <label>minute:
-                        <input  id="timeminuteid" ng-disabled="!checkadvisetime" type="number" name="input2" ng-model="trigger1input.value2"
-                               min="0" max="59" required>
-                    </label>
-                    <div role="alert">
-                        <span style="color:#ac2925" class="error" ng-show="(timeHour.input1.$error.required ||
-                         timeHour.input2.$error.required) && checkadvisetime">
-                            Required!</span>
-                        <span  style="color:#ac2925"  class="error" ng-show="(timeHour.input1.$error.number ||
-                          timeHour.input2.$error.number) && checkadvisetime">
-                            Not valid number!</span>
-                    </div>
-
-
-
-
-                </form>
 
                 <!--   Time zone    --->
+                <br>
+                <br>
 
                 <form name="timeZone">
                 <label><b>Inser your time zone: </b>  (Abilitation):

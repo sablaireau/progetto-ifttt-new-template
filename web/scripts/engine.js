@@ -102,7 +102,7 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/WeatherTrigger2', {
         templateUrl: 'innerPages/weatherChannel/WeatherTrigger2.html',
-        controller: 'customWeatherActionControllerTrigger1'
+        controller: 'customWeatherActionControllerTrigger2'
     });
 
 
@@ -619,10 +619,6 @@ iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$route
     function ($scope, $rootscope, $routeParams, $http, $resource) {
         $scope.loadHome = function()
         {
-
-
-
-
         }
 
         $scope.trigger1input = {
@@ -653,6 +649,52 @@ iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$route
                 $scope.checktimeZonevar = 'YES';
             //console.log(name);
         };
+
+
+
+    }]);
+
+iftttApp.controller('customWeatherActionControllerTrigger2', ['$scope', '$rootScope', '$routeParams', '$http', '$location',
+    function ($scope, $rootscope, $routeParams, $http, $resource, $location)
+    {
+        $scope.trigger1input = {
+            value3: 0
+        };
+
+
+
+
+        $scope.checkadvisesunsetvar = 'NO';
+        $scope.checkadvisetsunrisevar = 'NO';
+        $scope.checktimeZonevar = 'NO';
+
+        $scope.checkadvisesunrisefunc = function(name)
+        {
+        if($scope.checkadvisetsunrisevar === "YES")
+            $scope.checkadvisetsunrisevar = 'NO';
+        else
+            $scope.checkadvisetsunrisevar = 'YES';
+        //console.log(name);
+        };
+
+        $scope.checkadvisetsunsetfunc = function(name)
+        {
+            if($scope.checkadvisesunsetvar === "YES")
+                $scope.checkadvisesunsetvar = 'NO';
+            else
+                $scope.checkadvisesunsetvar = 'YES';
+            //console.log(name);
+        };
+
+        $scope.checktimeZonefunc = function(name)
+        {
+            if($scope.checktimeZonevar === "YES")
+                $scope.checktimeZonevar = 'NO';
+            else
+                $scope.checktimeZonevar = 'YES';
+            //console.log(name);
+        };
+
 
 
 
