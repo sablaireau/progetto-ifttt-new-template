@@ -28,7 +28,9 @@ $(function(){
 
 
 
-                }});
+                }
+
+            });
             forejsonurl="http://api.openweathermap.org/data/2.5/forecast/daily?lat="+position.coords.latitude+"&lon="+position.coords.longitude+"&appid=444a5c5b0f4846dd7465cb680a94caf1"
             $.ajax({method: "GET",
                 url: forejsonurl,
@@ -36,9 +38,10 @@ $(function(){
                     var foreresult=forepresentlocation;
 
 
-
                     updateBox3(foreresult);
-                }});
+                }
+
+            });
 
 
         });

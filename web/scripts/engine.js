@@ -100,6 +100,11 @@ iftttApp.config(['$routeProvider', function($routeProvider){
         controller: 'customWeatherActionControllerTrigger1'
     });
 
+    $routeProvider.when('/WeatherTrigger2', {
+        templateUrl: 'innerPages/weatherChannel/WeatherTrigger2.html',
+        controller: 'customWeatherActionControllerTrigger1'
+    });
+
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
