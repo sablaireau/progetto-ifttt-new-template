@@ -266,112 +266,64 @@ $(function(){
         }
         else
         {
-            var timezone = $('#timezoneid').val();
-            var time = $('#timehourid').val() + ":" +  $('#timeminuteid').val();
-            var zonechech = $('#checktimeZonevar:checkbox:checked').val();
-            if ($('#checktimeZonevar').is(":checked") &&  $('#checktime').is(":checked"))
+            //Brute force resolution
+            /*checksunset    checksunrise   checktimeZonevar
+               0                0               0
+               0                0               1
+               0                1               0
+               0                1               1
+               1                0               0
+               1                0               1
+               1                1               0
+               1                1               1
+            *
+            */
+
+
+
+            //          0                                       0                                       0
+            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
             {
 
-                var loginDataSend =
-                {
-                    "sender:": idCity,
-                    "timezone" : timezone,
-                    "ora": time
-
-                };
-                //alert(loginDataSend.pssword);
-                $.ajax({
-                    method: "post",
-                    url: "/MyServlet",
-                    data: loginDataSend,
-                    dataType: "json",
-                    success: console.log("la post ha avuto successo")
-                });
-
-                    url = "http://localhost:8080/#/gMailSucces";
-                window.location.replace(url);
-                //or
-                //window.location(url);
 
             }
-            else
+            //          0                                       0                                       1
+            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":unchecked"))
             {
-                if ($('#checktimeZonevar').is(":checked"))
-                {
-
-                    var loginDataSend =
-                    {
-                        "sender:": idCity,
-                        "timezone" : timezone,
-                        "ora": "null"
-
-                    };
-                    //alert(loginDataSend.pssword);
-                    $.ajax({
-                        method: "post",
-                        url: "/MyServlet",
-                        data: loginDataSend,
-                        dataType: "json",
-                        success: console.log("la post ha avuto successo")
-                    });
-
-                    url = "http://localhost:8080/#/gMailSucces";
-                    window.location.replace(url);
-                    //or
-                    //window.location(url);
-                }
-                else
-                {
-                    if ($('#checktime').is(":checked"))
-                    {
-                        var loginDataSend =
-                        {
-                            "sender:": idCity,
-                            "timezone" : "null",
-                            "ora": time
-
-                        };
-                        //alert(loginDataSend.pssword);
-                        $.ajax({
-                            method: "post",
-                            url: "/MyServlet",
-                            data: loginDataSend,
-                            dataType: "json",
-                            success: console.log("la post ha avuto successo")
-                        });
-                        var temp = $("gMailSucces").val();
-                        url = "http://localhost:8080/#/" + temp;
-                        window.location.replace(url);
-                        //or
-                        //window.location(url);
-
-                    }
-                    else
-                    {
-                        var loginDataSend =
-                        {
-                            "sender:": idCity,
-                            "timezone" : "null",
-                            "ora": "null"
-
-                        };
-                        //alert(loginDataSend.pssword);
-                        $.ajax({
-                            method: "post",
-                            url: "/MyServlet",
-                            data: loginDataSend,
-                            dataType: "json",
-                            success: console.log("la post ha avuto successo")
-                        });
-
-                        url = "http://localhost:8080/#/gMailSucces";
-                        window.location.replace(url);
-                        //or
-                        //window.location(url);
-                    }
-                }
 
             }
+            //          0                                       1                                      0
+            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":checked"))
+            {
+
+            }
+            //          0                                       1                                       1
+            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":unchecked"))
+            {
+
+            }
+            //          1                                       0                                       0
+            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
+            {
+
+            }
+            //          1                                       0                                       1
+            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":unchecked"))
+            {
+
+            }
+            //          1                                       1                                         0
+            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":checked"))
+            {
+
+            }
+            //          1                                       1                                          1
+            if ($('#checksunset').is(":unchecked") &&  $('#checksunrise').is(":unchecked") &&   $('#checktimeZonevar').is(":unchecked"))
+            {
+
+            }
+
+
 
         }
 
@@ -383,3 +335,29 @@ $(function(){
 
 
 })
+
+/* Template for checkbox [] ^ $ */
+/*
+
+var timezone = $('#timezoneid').val();
+var loginDataSend =
+{
+    "sender:": idCity,
+    "timezone" : timezone,
+    "ora": time
+
+};
+//alert(loginDataSend.pssword);
+$.ajax({
+    method: "post",
+    url: "/MyServlet",
+    data: loginDataSend,
+    dataType: "json",
+    success: console.log("la post ha avuto successo")
+});
+
+url = "http://localhost:8080/#/gMailSucces";
+window.location.replace(url);
+//or
+//window.location(url);
+*/
