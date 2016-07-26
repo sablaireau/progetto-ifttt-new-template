@@ -89,6 +89,11 @@ iftttApp.config(['$routeProvider', function($routeProvider){
     });
 
 
+    $routeProvider.when('/choseTriggerActionWeather', {
+        templateUrl: 'innerPages/weatherChannel/weatherChooseTriggerAction.html'
+    });
+
+    
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
