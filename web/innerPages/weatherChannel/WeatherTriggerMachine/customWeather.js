@@ -263,12 +263,15 @@ $(function(){
         }
         else
         {
-            var conceptName = $('#timezoneid').val();
+            var timezone = $('#timezoneid').val();
+            var time = $('#timehourid').val() + ":" +  $('#timeminuteid').val();
+
             //alert(conceptName);
             var loginDataSend =
             {
                 "sender:": idCity,
-                "timezone" : conceptName
+                "timezone" : timezone,
+                "ora": time
 
             };
             //alert(loginDataSend.pssword);

@@ -71,13 +71,13 @@
 
                 <form name="timeHour">
                     <label>Hour:
-                        <input  ng-disabled="!checkadvisetime"  type="number" name="input1" ng-model="trigger1input.value1"
+                        <input  id="timehourid" ng-disabled="!checkadvisetime"  type="number" name="input1" ng-model="trigger1input.value1"
                                min="0" max="24" required>
                     </label>
 
 
                     <label>minute:
-                        <input   ng-disabled="!checkadvisetime" type="number" name="input2" ng-model="trigger1input.value2"
+                        <input  id="timeminuteid" ng-disabled="!checkadvisetime" type="number" name="input2" ng-model="trigger1input.value2"
                                min="0" max="59" required>
                     </label>
                     <div role="alert">
