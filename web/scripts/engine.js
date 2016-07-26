@@ -628,6 +628,7 @@ iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$route
 
 
 
+        $scope.errorButton = 'cia';
         $scope.checkadvisetimevar = 'NO';
         $scope.checktimeZonevar = 'NO'
         $scope.checkadvisetimefunc = function(name)
