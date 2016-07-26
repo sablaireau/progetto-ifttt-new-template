@@ -265,8 +265,98 @@ $(function(){
         {
             var timezone = $('#timezoneid').val();
             var time = $('#timehourid').val() + ":" +  $('#timeminuteid').val();
+            var zonechech = $('#checktimeZonevar:checkbox:checked').val();
+            if ($('#checktimeZonevar').is(":checked") &&  $('#checktime').is(":checked"))
+            {
 
-            //alert(conceptName);
+                var loginDataSend =
+                {
+                    "sender:": idCity,
+                    "timezone" : timezone,
+                    "ora": time
+
+                };
+                //alert(loginDataSend.pssword);
+                $.ajax({
+                    method: "post",
+                    url: "/MyServlet",
+                    data: loginDataSend,
+                    dataType: "json",
+                    success: console.log("la post ha avuto successo")
+                });
+
+                var temp = $("gMailSucces").val();
+                url = "http://localhost:8080/#/" + temp;
+                window.location.replace(url);
+                //or
+                //window.location(url);
+
+            }
+            else
+            {
+                if ($('#checktimeZonevar').is(":checked"))
+                {
+
+                    var loginDataSend =
+                    {
+                        "sender:": idCity,
+                        "timezone" : timezone,
+                        "ora": "null"
+
+                    };
+                    //alert(loginDataSend.pssword);
+                    $.ajax({
+                        method: "post",
+                        url: "/MyServlet",
+                        data: loginDataSend,
+                        dataType: "json",
+                        success: console.log("la post ha avuto successo")
+                    });
+                }
+                else
+                {
+                    if ($('#checktime').is(":checked"))
+                    {
+                        var loginDataSend =
+                        {
+                            "sender:": idCity,
+                            "timezone" : "null",
+                            "ora": time
+
+                        };
+                        //alert(loginDataSend.pssword);
+                        $.ajax({
+                            method: "post",
+                            url: "/MyServlet",
+                            data: loginDataSend,
+                            dataType: "json",
+                            success: console.log("la post ha avuto successo")
+                        });
+
+                    }
+                    else
+                    {
+                        var loginDataSend =
+                        {
+                            "sender:": idCity,
+                            "timezone" : "null",
+                            "ora": "null"
+
+                        };
+                        //alert(loginDataSend.pssword);
+                        $.ajax({
+                            method: "post",
+                            url: "/MyServlet",
+                            data: loginDataSend,
+                            dataType: "json",
+                            success: console.log("la post ha avuto successo")
+                        });
+                    }
+                }
+
+            }
+
+            /*
             var loginDataSend =
             {
                 "sender:": idCity,
@@ -282,7 +372,9 @@ $(function(){
                 dataType: "json",
                 success: console.log("la post ha avuto successo")
             });
+            */
         }
+
 
     })
 
