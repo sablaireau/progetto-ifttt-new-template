@@ -111,6 +111,12 @@ iftttApp.config(['$routeProvider', function($routeProvider){
     });
 
 
+    $routeProvider.when('/WeatherTrigger4', {
+        templateUrl: 'innerPages/weatherChannel/WeatherTrigger4.html',
+        controller: 'customWeatherActionControllerTrigger4'
+    });
+
+
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
@@ -751,4 +757,53 @@ iftttApp.controller('customWeatherActionControllerTrigger3', ['$scope', '$rootSc
 
 
     }]);
+
+
+iftttApp.controller('customWeatherActionControllerTrigger4', ['$scope', '$rootScope', '$routeParams', '$http', '$location',
+    function ($scope, $rootscope, $routeParams, $http, $resource, $location)
+    {
+        $scope.trigger1input = {
+            value3: 0
+        };
+
+
+
+
+        $scope.checkadvisesunsetvar = 'NO';
+        $scope.checkadvisetsunrisevar = 'NO';
+        $scope.checktimeZonevar = 'NO';
+
+        $scope.checkadvisesunrisefunc = function(name)
+        {
+            if($scope.checkadvisetsunrisevar === "YES")
+                $scope.checkadvisetsunrisevar = 'NO';
+            else
+                $scope.checkadvisetsunrisevar = 'YES';
+            //console.log(name);
+        };
+
+        $scope.checkadvisetsunsetfunc = function(name)
+        {
+            if($scope.checkadvisesunsetvar === "YES")
+                $scope.checkadvisesunsetvar = 'NO';
+            else
+                $scope.checkadvisesunsetvar = 'YES';
+            //console.log(name);
+        };
+
+        $scope.checktimeZonefunc = function(name)
+        {
+            if($scope.checktimeZonevar === "YES")
+                $scope.checktimeZonevar = 'NO';
+            else
+                $scope.checktimeZonevar = 'YES';
+            //console.log(name);
+        };
+
+
+
+
+    }]);
+
+
 

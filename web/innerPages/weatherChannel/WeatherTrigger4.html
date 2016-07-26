@@ -5,10 +5,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link href="css/custonWeatherTrigger1/customWeather.css" rel="stylesheet" type="text/css">
     -->
-    <script src="innerPages/weatherChannel/WeatherTrigger3Machine/customWeather.js"></script>
+    <script src="innerPages/weatherChannel/WeatherTrigger4Machine/customWeather.js"></script>
 
 </head>
-<body ng-controller="customWeatherActionControllerTrigger3">
+<body ng-controller="customWeatherActionControllerTrigger4">
 
 
 <div class="container" style="padding-top: 6%">
@@ -62,13 +62,25 @@
                 </form>
                 -->
                 <br>
+                <form name="timeZone">
                 <b>Do you wish to have the sunrise </b>  (Abilitation):
                 <input
-                        id="checksunrise"
+                        id="checkthmax"
                         type="checkbox"
-                        ng-model="checkadvisesunrise"
+                        ng-model="checkmodelcheckthmax"
                         ng-change="checkadvisesunrisefunc(checkadvisetsunrisevar)"
                 >
+                <input id="thmaxid" ng-disabled="!checkmodelcheckthmax" type="number" name="input" ng-model="trigger1input.value3"
+                       min="-70" max="70" required>
+                </label>
+                <div role="alert">
+                        <span  style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required  && checktimeZone">
+                            Required!</span>
+                    <span  style="color:#ac2925"  class="error" ng-show="timeZone.input.$error.number  && checktimeZone">
+                            Not valid number!</span>
+                </div>
+                </form>
+
                 <br>
                 <br>
                 <b>Do you wish to have the sunset </b>  (Abilitation):
