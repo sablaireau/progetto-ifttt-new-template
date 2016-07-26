@@ -16,12 +16,12 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4">
-                    <p><h1>Choose your trigger</h1></p>
+                    <p><h1>Choose your action</h1></p>
                     <form id="gmail-form" role="form" name="form" ng-controller="GmailActionController" novalidate>
 
                         <div class="form-group">
                             <label>Email address:</label> <br>
-                            <label>Click me in order to active the email trigger:
+                            <label>Click me in order to active the email action:
                                 <input
                                         type="checkbox"
                                         ng-model="checkedEmail"
@@ -32,7 +32,9 @@
                                    ng-model="gmailinput.email"
                                    required="" name="uEmail"
                                    maxlength="100"
+                                   ng-trim="false"
                             >
+                            <span>{{100 - gmailinput.email.length}} left </span>
                             <div ng-show="form.$submitted || form.uEmail.$touched">
                                 <span ng-show="form.uEmail.$error.email"   style="color: #b81900">This is not a valid email</span>
                             </div>
@@ -47,7 +49,7 @@
                         <!--Subject e.mail -->
                         <div class="form-group">
                             <label>The object:</label>
-                            <label>Click me in order to active the subject trigger:
+                            <label>Click me in order to active the subject action:
                                 <input
                                         type="checkbox"
                                         ng-model="checkedSubject"
@@ -56,13 +58,15 @@
                             </label><br/>
                             <textarea class="form-control" rows="5" id="subjectReceive"  placeholder="insert the subject"
                                       ng-model="gmailinput.subjectReceive"  name="subjectReceive"  ng-disabled="!checkedSubject"
-                                      maxlength="500"
+                                      maxlength="500" ng-trim="false"
                             ></textarea>
+                            <span>{{500 - gmailinput.subjectReceive.length}} left </span>
                         </div>
 
                         <div>
-                            <a  type="submit" class="btn btn-primary" href="#chooseChannel" >Back</a>
-                            <a  href="#gMailAction" ng-disabled="!checkedSubject && !checkedEmail" type="submit" class="btn btn-primary"  ng-click="triggerGmail(gmailinput)" >Next</a>
+                            <a  type="submit" class="btn btn-primary" href="#gMailTrigger" >Back</a>
+                            <a  href="#gMailAction" ng-disabled="!checkedSubject && !checkedEmail" type="submit"
+                                class="btn btn-primary"  ng-click="actionGmail(gmailinput)" >Next</a>
                         </div>
                         <label ng-if="!checkedSubject && !checkedEmail" class="animate-if" >
                             You have to ability e.mail or/and subject in order to continue
@@ -81,12 +85,12 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 
 <!--href="#SubGMailAction" -->
-
-
 
 
 
