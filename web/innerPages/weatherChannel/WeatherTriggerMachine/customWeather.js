@@ -285,8 +285,7 @@ $(function(){
                     success: console.log("la post ha avuto successo")
                 });
 
-                var temp = $("gMailSucces").val();
-                url = "http://localhost:8080/#/" + temp;
+                    url = "http://localhost:8080/#/gMailSucces";
                 window.location.replace(url);
                 //or
                 //window.location(url);
@@ -312,6 +311,11 @@ $(function(){
                         dataType: "json",
                         success: console.log("la post ha avuto successo")
                     });
+
+                    url = "http://localhost:8080/#/gMailSucces";
+                    window.location.replace(url);
+                    //or
+                    //window.location(url);
                 }
                 else
                 {
@@ -332,6 +336,11 @@ $(function(){
                             dataType: "json",
                             success: console.log("la post ha avuto successo")
                         });
+                        var temp = $("gMailSucces").val();
+                        url = "http://localhost:8080/#/" + temp;
+                        window.location.replace(url);
+                        //or
+                        //window.location(url);
 
                     }
                     else
@@ -351,6 +360,11 @@ $(function(){
                             dataType: "json",
                             success: console.log("la post ha avuto successo")
                         });
+
+                        url = "http://localhost:8080/#/gMailSucces";
+                        window.location.replace(url);
+                        //or
+                        //window.location(url);
                     }
                 }
 
