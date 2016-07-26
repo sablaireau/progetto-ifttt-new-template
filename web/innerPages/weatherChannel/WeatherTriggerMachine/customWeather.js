@@ -263,9 +263,12 @@ $(function(){
         }
         else
         {
+            var conceptName = $('#timezoneid').val();
+            //alert(conceptName);
             var loginDataSend =
             {
-                "sender:": idCity
+                "sender:": idCity,
+                "timezone" : conceptName
 
             };
             //alert(loginDataSend.pssword);

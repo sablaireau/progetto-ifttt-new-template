@@ -99,11 +99,12 @@
                 <form name="timeZone">
                 <label><b>Inser your time zone: </b>  (Abilitation):
                     <input
+
                             type="checkbox"
                             ng-model="checktimeZone"
                             ng-change="checktimeZonefunc(checktimeZonevar)"
                     >
-                    <input ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
+                    <input id="timezoneid" ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
                            min="-12" max="12" required>
                 </label>
                     <div role="alert">
