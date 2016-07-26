@@ -62,22 +62,30 @@
                 </form>
                 -->
                 <br>
-                <b>Insert the time that you wish to recive the advise:</b> <br>
+                <b>Insert the time that you wish to recive the advise </b>  (Abilitation):
+                <input
+                        type="checkbox"
+                        ng-model="checkadvisetime"
+                        ng-change="checkadvisetimefunc(checkadvisetimevar)"
+                >
+
                 <form name="timeHour">
                     <label>Hour:
-                        <input type="number" name="input1" ng-model="trigger1input.value1"
+                        <input  ng-disabled="!checkadvisetime"  type="number" name="input1" ng-model="trigger1input.value1"
                                min="0" max="24" required>
                     </label>
 
 
                     <label>minute:
-                        <input type="number" name="input2" ng-model="trigger1input.value2"
+                        <input   ng-disabled="!checkadvisetime" type="number" name="input2" ng-model="trigger1input.value2"
                                min="0" max="59" required>
                     </label>
                     <div role="alert">
-                        <span style="color:#ac2925" class="error" ng-show="timeHour.input1.$error.required ||  timeHour.input2.$error.required">
+                        <span style="color:#ac2925" class="error" ng-show="(timeHour.input1.$error.required ||
+                         timeHour.input2.$error.required) && checkadvisetime">
                             Required!</span>
-                        <span  style="color:#ac2925"  class="error" ng-show="timeHour.input1.$error.number ||  timeHour.input2.$error.number">
+                        <span  style="color:#ac2925"  class="error" ng-show="(timeHour.input1.$error.number ||
+                          timeHour.input2.$error.number) && checkadvisetime">
                             Not valid number!</span>
                     </div>
 
@@ -89,14 +97,19 @@
                 <!--   Time zone    --->
 
                 <form name="timeZone">
-                <label>Inser your time zone:
-                    <input type="number" name="input" ng-model="trigger1input.value3"
+                <label><b>Inser your time zone: </b>  (Abilitation):
+                    <input
+                            type="checkbox"
+                            ng-model="checktimeZone"
+                            ng-change="checktimeZonefunc(checktimeZonevar)"
+                    >
+                    <input ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
                            min="-12" max="12" required>
                 </label>
                     <div role="alert">
-                        <span style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required">
+                        <span  style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required  && checktimeZone">
                             Required!</span>
-                        <span  style="color:#ac2925"  class="error" ng-show="timeZone.input.$error.number">
+                        <span  style="color:#ac2925"  class="error" ng-show="timeZone.input.$error.number  && checktimeZone">
                             Not valid number!</span>
                     </div>
 

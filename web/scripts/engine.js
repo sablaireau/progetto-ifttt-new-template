@@ -615,6 +615,9 @@ iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$route
         $scope.loadHome = function()
         {
 
+
+
+
         }
 
         $scope.trigger1input = {
@@ -622,6 +625,29 @@ iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$route
             value2: 0,
             value3: 0
         };
+
+
+
+        $scope.checkadvisetimevar = 'NO';
+        $scope.checktimeZonevar = 'NO'
+        $scope.checkadvisetimefunc = function(name)
+        {
+            if($scope.checkadvisetimevar === "YES")
+                $scope.checkadvisetimevar = 'NO';
+            else
+                $scope.checkadvisetimevar = 'YES';
+            //console.log(name);
+        };
+
+        $scope.checktimeZonefunc = function(name)
+        {
+            if($scope.checktimeZonevar === "YES")
+                $scope.checktimeZonevar = 'NO';
+            else
+                $scope.checktimeZonevar = 'YES';
+            //console.log(name);
+        };
+
 
 
     }]);
