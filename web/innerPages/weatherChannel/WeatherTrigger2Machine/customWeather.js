@@ -287,7 +287,7 @@ $(function(){
                 var loginDataSend =
                 {
                     "sender:":  idCity,
-                    "timezone": "timezone",
+                    "timezone": timezone,
                     "sunset":   "1",
                     "sunrise":  "1"
 
@@ -322,7 +322,7 @@ $(function(){
                         var loginDataSend =
                         {
                             "sender:":  idCity,
-                            "timezone": "timezone",
+                            "timezone": timezone,
                             "sunset":   "1",
                             "sunrise":  "0"
 
@@ -373,7 +373,7 @@ $(function(){
                                     var loginDataSend =
                                     {
                                         "sender:":  idCity,
-                                        "timezone": "timezone",
+                                        "timezone": timezone,
                                         "sunset":   "0",
                                         "sunrise":  "0"
 
