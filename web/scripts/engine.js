@@ -84,6 +84,11 @@ iftttApp.config(['$routeProvider', function($routeProvider){
         controller: 'GmailActionController'
     });
 
+    $routeProvider.when('/gMailSucces', {
+        templateUrl: 'innerPages/gmailChannel/gmailSuccess.html'
+    });
+
+
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
