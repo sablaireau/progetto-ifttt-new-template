@@ -1,0 +1,161 @@
+<html>
+<head>
+    <!-- Stile old web-site.
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href="css/custonWeatherTrigger1/customWeather.css" rel="stylesheet" type="text/css">
+    -->
+    <script src="innerPages/weatherChannel/WeatherTriggerMachine/customWeather.js"></script>
+
+</head>
+<body ng-controller="customWeatherActionControllerTrigger1">
+
+
+<div class="container" style="padding-top: 6%">
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+       <span align="center">
+        <h2 class="">Chose the location that you wish to monitor</h2>
+           <hr>
+       </span>
+
+            <div id="search-bar">
+
+                <div class="input-group">
+                <span class="input-group-addon ">
+                    <div class="hidden-xs">Search for your city :
+                    </div>
+                </span>
+
+                    <input id="search-input" type="search" class="form-control" placeholder="Enter location...">
+                    <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Search!</button>
+                </span>
+                </div>
+            </div>
+
+
+            <div id="temper">
+                <div id="temp-board">
+                    <div id="temp-inner">
+
+                        <div id="weather-desc">Cant find your Location :(</div>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <div class="values">City : <span id="main-name">N.A</span></div>
+                    <div class="values">City Id : <span id="sys-id">N.A</span></div>
+                    <div class="values">Longitude : <span id="coord-lon">N.A</span></div>
+                    <div class="values">Latitude : <span id="coord-lat">N.A</span> </div>
+                    <div class="values">Country : <span id="sys-country">N.A</span>   </div>
+                      </div>
+                <!-- Time -->
+                <!--
+                <form name="myForm" ng-controller="DateController as dateCtrl">
+                    <label for="exampleInput">Insert the time that you wish to recive the advise</label>
+                    <input type="time" id="exampleInput" name="input" ng-model="example.value"
+                           placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required />
+                </form>
+                <!--   Time zone    --->
+                <!--
+                <form name="myForm" ng-controller="ExampleController">
+                <label>Inser your time zone:
+                    <input type="number" name="input" ng-model="example.value"
+                           min="-12" max="12" required>
+                </label>
+                </form>
+                <!--   -->
+
+                <a  type="submit" class="btn btn-primary" href="#yWeather" >Back</a>
+                <button id="but" type="submit" class="btn btn-primary">Subit</button>
+                <hr>
+            </div>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+
+</div>
+
+<!-- Script di page -->
+
+<script>
+    angular.module('numberExample', [])
+            .controller('ExampleController', ['$scope', function($scope) {
+                $scope.example = {
+                    value: 12
+                };
+            }]);
+</script>
+
+<script>
+    angular.module('timeExample', [])
+            .controller('DateController', ['$scope', function($scope) {
+                $scope.example = {
+                    value: new Date(1970, 0, 1, 14, 57, 0)
+                };
+            }]);
+</script>
+
+
+</body>
+</html>
+
+<!-- Codici di esempio
+ UTC-12 a UTC+12
+
+<form name="myForm" ng-controller="ExampleController">
+    <label>Number:
+        <input type="number" name="input" ng-model="example.value"
+               min="-12" max="12" required>
+    </label>
+    <div role="alert">
+    <span class="error" ng-show="myForm.input.$error.required">
+      Required!</span>
+        <span class="error" ng-show="myForm.input.$error.number">
+      Not valid number!</span>
+    </div>
+    <tt>value = {{example.value}}</tt><br/>
+    <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+    <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+    <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+    <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+</form>
+
+-->
+
+
+
+
+<!--
+<script>
+ angular.module('timeExample', [])
+   .controller('DateController', ['$scope', function($scope) {
+     $scope.example = {
+       value: new Date(1970, 0, 1, 14, 57, 0)
+     };
+   }]);
+</script>
+<form name="myForm" ng-controller="DateController as dateCtrl">
+   <label for="exampleInput">Pick a time between 8am and 5pm:</label>
+   <input type="time" id="exampleInput" name="input" ng-model="example.value"
+       placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
+   <div role="alert">
+     <span class="error" ng-show="myForm.input.$error.required">
+         Required!</span>
+     <span class="error" ng-show="myForm.input.$error.time">
+         Not a valid date!</span>
+   </div>
+   <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+   <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+   <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+   <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+   <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+</form>
+-->

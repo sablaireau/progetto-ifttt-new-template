@@ -95,6 +95,12 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
 
 
+    $routeProvider.when('/WeatherTrigger1', {
+        templateUrl: 'innerPages/weatherChannel/WeatherTrigger1.html',
+        controller: 'customWeatherActionControllerTrigger1'
+    });
+
+
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
@@ -604,5 +610,12 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
 
 
 
+iftttApp.controller('customWeatherActionControllerTrigger1',  ['$scope', '$routeParams',
+    function ($scope, $rootscope, $routeParams, $http, $resource) {
+        $scope.loadHome = function()
+        {
 
+        }
+
+    }]);
 
