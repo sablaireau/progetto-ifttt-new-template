@@ -54,7 +54,7 @@ $(function(){
             $('#temper').hide();
             alert("No City found Try Again!!....");
         }
-        /*
+
         var k=result.weather[0].icon;
         var back={"01d":"https://snap-photos.s3.amazonaws.com/img-thumbs/960w/3448F05E20.jpg",
             "01n":"https://snap-photos.s3.amazonaws.com/img-thumbs/960w/7BY01H9BDT.jpg",
@@ -83,11 +83,11 @@ $(function(){
         weather= result.weather[0].description;
         icon=result.weather[0].icon;
         locality=result.name+' - '+result.sys.country;
-        */
+
 
 
         //temp-board
-        /*
+
         $("#temp").html(temperature+' &deg;C');
         $("#weather-desc").text(weather);
         $("#icon").attr("src","http://openweathermap.org/img/w/"+icon+".png");
@@ -130,7 +130,7 @@ $(function(){
 
         //box-2
 
-        */
+
 
         //box4
         $("#main-name").text(result.name);
@@ -274,6 +274,8 @@ $(function(){
         });
 
     })
+
+
 
 
 

@@ -54,19 +54,52 @@
                     <div class="values">Country : <span id="sys-country">N.A</span>   </div>
                       </div>
                 <!-- Time -->
-                <!--
+                <!-- Don't work
                 <form name="myForm" ng-controller="DateController as dateCtrl">
                     <label for="exampleInput">Insert the time that you wish to recive the advise</label>
                     <input type="time" id="exampleInput" name="input" ng-model="example.value"
                            placeholder="HH:mm:ss" min="00:00:00" max="24:00:00" required />
                 </form>
+                -->
+                <br>
+                <b>Insert the time that you wish to recive the advise:</b> <br>
+                <form name="timeHour">
+                    <label>Hour:
+                        <input type="number" name="input1" ng-model="trigger1input.value1"
+                               min="0" max="24" required>
+                    </label>
+
+
+                    <label>minute:
+                        <input type="number" name="input2" ng-model="trigger1input.value2"
+                               min="0" max="59" required>
+                    </label>
+                    <div role="alert">
+                        <span style="color:#ac2925" class="error" ng-show="timeHour.input1.$error.required ||  timeHour.input2.$error.required">
+                            Required!</span>
+                        <span  style="color:#ac2925"  class="error" ng-show="timeHour.input1.$error.number ||  timeHour.input2.$error.number">
+                            Not valid number!</span>
+                    </div>
+
+
+
+
+                </form>
+
                 <!--   Time zone    --->
-                <!--
-                <form name="myForm" ng-controller="ExampleController">
+
+                <form name="timeZone">
                 <label>Inser your time zone:
-                    <input type="number" name="input" ng-model="example.value"
+                    <input type="number" name="input" ng-model="trigger1input.value3"
                            min="-12" max="12" required>
                 </label>
+                    <div role="alert">
+                        <span style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required">
+                            Required!</span>
+                        <span  style="color:#ac2925"  class="error" ng-show="timeZone.input.$error.number">
+                            Not valid number!</span>
+                    </div>
+
                 </form>
                 <!--   -->
 
