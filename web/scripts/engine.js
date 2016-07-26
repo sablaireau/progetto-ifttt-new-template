@@ -157,27 +157,63 @@ iftttApp.controller('createAccountController',  ['$scope', '$routeParams',
 iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routeParams', '$http', '$location',
     function ($scope, $rootscope, $routeParams, $http, $resource, $location) {
 
+        //Bug stringa null
+
         $scope.triggerGmail = function(user)
         {
+
             if (angular.isUndefined(user))
             {
                 //alert("Almost a field must be completed");
-                var loginDataSend =
-                {
-                    "sender:": "",
-                    "subject": ""
-                };
-                //alert(loginDataSend.pssword);
-                $.ajax({
-                    method: "post",
-                    url: "/MyServlet",
-                    data: loginDataSend,
-                    dataType: "json",
-                    success: console.log("la post ha avuto successo")
-                });
-                //return
+                if($scope.checkemailvar === "YES"  &&  $scope.checkedSubjectvar === "YES") {
+                    var loginDataSend =
+                    {
+                        "sender:": "",
+                        "subject": ""
+                    };
+                    //alert(loginDataSend.pssword);
+                    $.ajax({
+                        method: "post",
+                        url: "/MyServlet",
+                        data: loginDataSend,
+                        dataType: "json",
+                        success: console.log("la post ha avuto successo n1.1")
+                    });
+                }
+                if($scope.checkemailvar === "NO"  &&  $scope.checkedSubjectvar === "YES") {
+                    var loginDataSend =
+                    {
+                        "sender:": "null",
+                        "subject": ""
+                    };
+                    //alert(loginDataSend.pssword);
+                    $.ajax({
+                        method: "post",
+                        url: "/MyServlet",
+                        data: loginDataSend,
+                        dataType: "json",
+                        success: console.log("la post ha avuto successo n1.2")
+                    });
+                }
+                if($scope.checkemailvar === "YES"  &&  $scope.checkedSubjectvar === "NO") {
+                    var loginDataSend =
+                    {
+                        "sender:": "",
+                        "subject": "null"
+                    };
+                    //alert(loginDataSend.pssword);
+                    $.ajax({
+                        method: "post",
+                        url: "/MyServlet",
+                        data: loginDataSend,
+                        dataType: "json",
+                        success: console.log("la post ha avuto successo n1.3")
+                    });
+                }
+
 
             }
+
             else
             {
                 var view = "SubGMailAction";
@@ -200,7 +236,7 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
                         url: "/MyServlet",
                         data: loginDataSend,
                         dataType: "json",
-                        success: console.log("la post ha avuto successo")
+                        success: console.log("la post ha avuto successo n2")
                     });
                     //return;
                     //alert("Two defined");
@@ -217,7 +253,7 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
                         $scope.triggerGmailData = angular.copy(user);
                         var loginDataSend =
                         {
-                            "sender:": "null",
+                            "sender:": "",
                             "subject:": $scope.triggerGmailData.subjectReceive
                         };
                         //alert(loginDataSend.pssword);
@@ -226,7 +262,7 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
                             url: "/MyServlet",
                             data: loginDataSend,
                             dataType: "json",
-                            success: console.log("la post ha avuto successo")
+                            success: console.log("la post ha avuto successo n3")
                         });
                         //return;
                         //alert(" subjectReceive ");
@@ -243,7 +279,7 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
                             var loginDataSend =
                             {
                                 "sender:": $scope.triggerGmailData.email,
-                                "subject": "null"
+                                "subject": ""
                             };
                             //alert(loginDataSend.pssword);
                             $.ajax({
@@ -251,7 +287,7 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
                                 url: "/MyServlet",
                                 data: loginDataSend,
                                 dataType: "json",
-                                success: console.log("la post ha avuto successo")
+                                success: console.log("la post ha avuto successo n4")
                             });
                             //return;
                             //alert("email defined");
@@ -275,15 +311,26 @@ iftttApp.controller('GmailActionController', ['$scope', '$rootScope', '$routePar
 
 
 
-            $scope.check = 'NO';
-            $scope.checkAll = function(name)
+            $scope.checkemailvar = 'NO';
+            $scope.checkemailfunc = function(name)
             {
-                if($scope.check === "YES")
-                $scope.check = 'NO';
+                if($scope.checkemailvar === "YES")
+                $scope.checkemailvar = 'NO';
                 else
-                    $scope.check = 'YES';
-                console.log(name);
+                    $scope.checkemailvar = 'YES';
+                //console.log(name);
             };
+
+
+        $scope.checkedSubjectvar = 'NO';
+        $scope.checkedSubjectfunc = function(checkedSubjectvar)
+        {
+            if($scope.checkedSubjectvar === "YES")
+                $scope.checkedSubjectvar = 'NO';
+            else
+                $scope.checkedSubjectvar = 'YES';
+            //console.log(name);
+        };
 
 
     }]);
