@@ -864,8 +864,21 @@ iftttApp.controller('customWeatherActionControllerTrigger4', ['$scope', '$rootSc
 iftttApp.controller('loginPageController',  ['$scope', '$routeParams',
     function ($scope, $rootscope, $routeParams, $http, $resource) {
 
-        $scope.loginfunc = function() {
-alert("hello");
+        $scope.loginfunc = function(pass, email)
+        {
+            var loginDataSend =
+            {
+                "password:": pass,
+                "email:": email
+            };
+            //alert(loginDataSend.pssword);
+            $.ajax({
+                method: "post",
+                url: "/MyServlet",
+                data: loginDataSend,
+                dataType: "json",
+                success: console.log("la post ha avuto successo n4.1")
+            });
         }
 
     }]);
