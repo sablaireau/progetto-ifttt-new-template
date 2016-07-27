@@ -15,10 +15,42 @@
             <hr>
                 <img class="profile-img" src="../images/login.png"
                      alt="">
-                <form class="form-signin">
+                <form class="form-signin" name="form">
+
+                    <div class="control-group" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+                        <div class="controls">
+                            <input type="email" name="email" class="form-control" ng-model="email" required placeholder="Email"
+                                   autofocus
+                            />
+                            <span style="color: #cd0a0a" class="help-inline"
+                                  ng-show="submitted && form.email.$error.required">Required</span>
+                            <span style="color: #cd0a0a" class="help-inline"
+                                  ng-show="submitted && form.email.$error.email">Invalid email</span>
+                        </div>
+                    </div>
+
+                    <!--
                     <input type="text" class="form-control" placeholder="Email" required autofocus>
+
                     <input type="password" class="form-control" placeholder="Password" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        -->
+
+                    <div class="control-group" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+                        <div class="controls">
+                            <input type="password" name="pass" class="form-control" ng-model="pass" required placeholder="Password"
+
+
+                            />
+                            <span style="color: #cd0a0a" class="help-inline"
+                                  ng-show="submitted && form.pass.$error.required">Required</span>
+                        </div>
+                    </div>
+
+
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit"
+                            ng-click="submitted=true"
+                    >
                         Sign in</button>
                     <label class="checkbox pull-left">
                         <input type="checkbox" value="remember-me">
@@ -34,6 +66,22 @@
 </div>
 
 
+<!--
+http://jsfiddle.net/thomporter/ANxmv/2/
+-->
+<!--
+<form name="form" ng-app>
+    <div class="control-group" ng-class="{true: 'error'}[submitted && form.email.$invalid]">
+        <label class="control-label" for="email">Your email address</label>
+        <div class="controls">
+            <input type="email" name="email" ng-model="email" required />
+            <span class="help-inline" ng-show="submitted && form.email.$error.required">Required</span>
+            <span class="help-inline" ng-show="submitted && form.email.$error.email">Invalid email</span>
+        </div>
+    </div>
 
+    <button type="submit" class="btn btn-primary btn-large" ng-click="submitted=true">Submit</button>
+</form>
+-->
 </body>
 </html>

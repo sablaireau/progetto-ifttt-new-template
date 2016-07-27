@@ -43,7 +43,7 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/loginPage', {
         templateUrl: 'innerPages/loginPage.html',
-        controller: 'loginPageController'
+
     });
 
     $routeProvider.when('/index/myRecipes', {
