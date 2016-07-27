@@ -5,10 +5,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link href="css/custonWeatherTrigger1/customWeather.css" rel="stylesheet" type="text/css">
     -->
-    <script src="innerPages/weatherChannel/WeatherTrigger4Machine/customWeather.js"></script>
+    <script src="innerPages/weatherChannel/WeatherTrigger2Machine/customWeather.js"></script>
 
 </head>
-<body ng-controller="customWeatherActionControllerTrigger4">
+<body ng-controller="customWeatherActionControllerTrigger2">
 
 
 <div class="container" style="padding-top: 6%">
@@ -64,26 +64,34 @@
                 <br>
 
 
-                <form name="thmin">
+                <form name="weather">
                     <br>
                     <br>
-                    <b>Witch is the thmin </b>  (Abilitation):
+                    <b>Witch is the weather </b>  (Abilitation):
                     <input
-                            id="thminidcheckbox"
+                            id="weatheridcheckbox"
                             type="checkbox"
-                            ng-model="checkmodelcheckthmin"
+                            ng-model="checkmodelcheckweather"
 
                     >
 
+                    <!--
+                    <input id="weatheridinput" ng-disabled="!checkmodelcheckweather" type="search" name="input" ng-model="trigger1input.value2"
+                           required>
+                           -->
+                        <form name="myForm">
+                        <label for="mySelect">Make a choice:</label>
+                        <select name="mySelect" id="mySelect"
+                                ng-disabled="!checkmodelcheckweather"
+                                ng-options="option.name  for option in data.availableOptions track by option.id"
+                                ng-model="data.selectedOption"></select>
+                        </form>
 
-                    <input id="thminidinput" ng-disabled="!checkmodelcheckthmin" type="number" name="input" ng-model="trigger1input.value2"
-                           min="-70" max="70" required>
+
                     </label>
                     <div role="alert">
-                        <span  style="color:#ac2925" class="error" ng-show="thmin.input.$error.required && checkmodelcheckthmin">
+                        <span  style="color:#ac2925" class="error" ng-show="weather.input.$error.required && checkmodelcheckweather">
                             Required!</span>
-                        <span  style="color:#ac2925"  class="error" ng-show="thmin.input.$error.number && checkmodelcheckthmin">
-                            Not valid number!</span>
                     </div>
                 </form>
 
