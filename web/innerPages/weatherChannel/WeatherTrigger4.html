@@ -62,34 +62,46 @@
                 </form>
                 -->
                 <br>
-                <form name="timeZone">
-                <b>Do you wish to have the sunrise </b>  (Abilitation):
+                <form name="thmax">
+                <b>Witch is the thmax </b>  (Abilitation):
                 <input
-                        id="checkthmax"
+                        id="thmaxidcheckbox"
                         type="checkbox"
                         ng-model="checkmodelcheckthmax"
-                        ng-change="checkadvisesunrisefunc(checkadvisetsunrisevar)"
                 >
-                <input id="thmaxid" ng-disabled="!checkmodelcheckthmax" type="number" name="input" ng-model="trigger1input.value3"
+                <input id="thmaxidinput" ng-disabled="!checkmodelcheckthmax" type="number" name="input" ng-model="trigger1input.value1"
                        min="-70" max="70" required>
                 </label>
                 <div role="alert">
-                        <span  style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required  && checktimeZone">
+                        <span  style="color:#ac2925" class="error" ng-show="thmaxidcheckbox.input.$error.required  && !checkmodelcheckthmax">
                             Required!</span>
-                    <span  style="color:#ac2925"  class="error" ng-show="timeZone.input.$error.number  && checktimeZone">
+                    <span  style="color:#ac2925"  class="error" ng-show="thmaxidcheckbox.input.$error.number  && !checkmodelcheckthmax">
                             Not valid number!</span>
                 </div>
                 </form>
 
+                <form name="thmin">
                 <br>
                 <br>
-                <b>Do you wish to have the sunset </b>  (Abilitation):
+                <b>Witch is the thmin </b>  (Abilitation):
                 <input
-                        id="checksunset"
+                        id="thminidcheckbox"
                         type="checkbox"
-                        ng-model="checkadvisesunset"
-                        ng-change="checkadvisetsunsetfunc(checkadvisesunsetvar)"
+                        ng-model="checkmodelcheckthmin"
+
                 >
+
+
+                <input id="thminid" ng-disabled="!checkmodelcheckthmin" type="number" name="input" ng-model="trigger1input.value2"
+                       min="-70" max="70" required>
+                </label>
+                <div role="alert">
+                        <span  style="color:#ac2925" class="error" ng-show="thmin.input.$error.required && !checkmodelcheckthmin">
+                            Required!</span>
+                    <span  style="color:#ac2925"  class="error" ng-show="thmin.input.$error.number && !checkmodelcheckthmin">
+                            Not valid number!</span>
+                </div>
+                </form>
 
 
 
@@ -103,7 +115,7 @@
                             id="checktimeZonevar"
                             type="checkbox"
                             ng-model="checktimeZone"
-                            ng-change="checktimeZonefunc(checktimeZonevar)"
+
                     >
                     <input id="timezoneid" ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
                            min="-12" max="12" required>

@@ -763,6 +763,8 @@ iftttApp.controller('customWeatherActionControllerTrigger4', ['$scope', '$rootSc
     function ($scope, $rootscope, $routeParams, $http, $resource, $location)
     {
         $scope.trigger1input = {
+            value1: 0,
+            value2: 0,
             value3: 0
         };
 
