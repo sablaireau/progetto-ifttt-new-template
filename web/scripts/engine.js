@@ -186,6 +186,11 @@ iftttApp.controller('myRecipesController',  ['$scope', '$routeParams',
 iftttApp.controller('createAccountController',  ['$scope', '$routeParams',
     function ($scope, $rootscope, $routeParams, $http, $resource) {
 
+        $scope.createAccountFunc = function()
+        {
+
+        }
+
 
     }]);
 
