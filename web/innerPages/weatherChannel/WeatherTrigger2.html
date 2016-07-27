@@ -5,10 +5,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link href="css/custonWeatherTrigger1/customWeather.css" rel="stylesheet" type="text/css">
     -->
-    <script src="innerPages/weatherChannel/WeatherTrigger2Machine/customWeather.js"></script>
+    <script src="innerPages/weatherChannel/WeatherTrigger4Machine/customWeather.js"></script>
 
 </head>
-<body ng-controller="customWeatherActionControllerTrigger2">
+<body ng-controller="customWeatherActionControllerTrigger4">
 
 
 <div class="container" style="padding-top: 6%">
@@ -52,7 +52,7 @@
                     <div class="values">Longitude : <span id="coord-lon">N.A</span></div>
                     <div class="values">Latitude : <span id="coord-lat">N.A</span> </div>
                     <div class="values">Country : <span id="sys-country">N.A</span>   </div>
-                      </div>
+                </div>
                 <!-- Time -->
                 <!-- Don't work
                 <form name="myForm" ng-controller="DateController as dateCtrl">
@@ -62,22 +62,56 @@
                 </form>
                 -->
                 <br>
-                <b>Do you wish to have the sunrise </b>  (Abilitation):
-                <input
-                        id="checksunrise"
-                        type="checkbox"
-                        ng-model="checkadvisesunrise"
-                        ng-change="checkadvisesunrisefunc(checkadvisetsunrisevar)"
-                >
-                <br>
-                <br>
-                <b>Do you wish to have the sunset </b>  (Abilitation):
-                <input
-                        id="checksunset"
-                        type="checkbox"
-                        ng-model="checkadvisesunset"
-                        ng-change="checkadvisetsunsetfunc(checkadvisesunsetvar)"
-                >
+
+
+                <form name="thmin">
+                    <br>
+                    <br>
+                    <b>Witch is the thmin </b>  (Abilitation):
+                    <input
+                            id="thminidcheckbox"
+                            type="checkbox"
+                            ng-model="checkmodelcheckthmin"
+
+                    >
+
+
+                    <input id="thminidinput" ng-disabled="!checkmodelcheckthmin" type="number" name="input" ng-model="trigger1input.value2"
+                           min="-70" max="70" required>
+                    </label>
+                    <div role="alert">
+                        <span  style="color:#ac2925" class="error" ng-show="thmin.input.$error.required && checkmodelcheckthmin">
+                            Required!</span>
+                        <span  style="color:#ac2925"  class="error" ng-show="thmin.input.$error.number && checkmodelcheckthmin">
+                            Not valid number!</span>
+                    </div>
+                </form>
+
+
+
+                <form name="periodform">
+                    <br>
+                    <br>
+                    <b>Period </b>  (Abilitation):
+                    <input
+                            id="periodidcheckbox"
+                            type="checkbox"
+                            ng-model="checkmodelcheckperiod"
+
+                    >
+
+
+                    <input id="periodidinput" ng-disabled="!checkmodelcheckperiod" type="number" name="input" ng-model="trigger1input.value4"
+                           min="0" max="700" required>
+                    </label>
+                    <div role="alert">
+                        <span  style="color:#ac2925" class="error" ng-show="periodform.input.$error.required && checkmodelcheckperiod">
+                            Required!</span>
+                        <span  style="color:#ac2925"  class="error" ng-show="periodform.input.$error.number && checkmodelcheckperiod">
+                            Not valid number!</span>
+                    </div>
+                </form>
+
 
 
 
@@ -86,16 +120,16 @@
                 <br>
 
                 <form name="timeZone">
-                <label><b>Inser your time zone: </b>  (Abilitation):
-                    <input
-                            id="checktimeZonevar"
-                            type="checkbox"
-                            ng-model="checktimeZone"
-                            ng-change="checktimeZonefunc(checktimeZonevar)"
-                    >
-                    <input id="timezoneid" ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
-                           min="-12" max="12" required>
-                </label>
+                    <label><b>Inser your time zone: </b>  (Abilitation):
+                        <input
+                                id="checktimeZonevar"
+                                type="checkbox"
+                                ng-model="checktimeZone"
+
+                        >
+                        <input id="timezoneid" ng-disabled="!checktimeZone" type="number" name="input" ng-model="trigger1input.value3"
+                               min="-12" max="12" required>
+                    </label>
                     <div role="alert">
                         <span  style="color:#ac2925" class="error" ng-show="timeZone.input.$error.required  && checktimeZone">
                             Required!</span>

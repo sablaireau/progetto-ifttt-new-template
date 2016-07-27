@@ -266,7 +266,7 @@ $(function(){
         else
         {
             //Brute force resolution
-            /*checksunset    checksunrise   checktimeZonevar        DONE
+            /*thmaxidcheckbox    thminidcheckbox   checktimeZonevar        DONE
                0                0               0                   *
                0                0               1                   *
                0                1               0                   *
@@ -277,91 +277,136 @@ $(function(){
                1                1               1
             */
 
-
-
+            //  sunset
+            // thmaxidcheckbox    thminidcheckbox    checktimeZonevar
+            //  thmaxidinput      thminidinput
 
             //          0                                       0                                       0
-            if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
+            if ($('#thmaxidcheckbox').is(":checked") &&  $('#thminidcheckbox').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
             {
                 var timezone = $('#timezoneid').val();
-                var loginDataSend =
+                var thmax = $('#thmaxidinput').val();
+                var thmin = $('#thminidinput').val();
+                if ($('#periodidcheckbox').is(":checked"))
                 {
-                    "sender:":  idCity,
-                    "timezone": timezone,
-                    "sunset":   "1",
-                    "sunrise":  "1"
+                    var peridod = $('#periodidinput').val();
+                    //ptimezone, pthmax, pthmin , pperiod
+                    sendingToServer(timezone, thmax, thmin, peridod);
+
 
                 }
-                sendingToServer(loginDataSend);
+                else
+                {
+                    var peridod = "null";
+                    //ptimezone, pthmax, pthmin , pperiod
+                    sendingToServer(timezone, thmax, thmin, peridod);
+
+                }
+
+                //sendingToServer(loginDataSend);
 
 
             }
             else
             {
                 //          0                                       0
-                if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked"))
+                if ($('#thmaxidcheckbox').is(":checked") &&  $('#thminidcheckbox').is(":checked"))
                 {
                     //var timezone = $('#timezoneid').val();
-                    var loginDataSend =
+                    var thmax = $('#thmaxidinput').val();
+                    var thmin = $('#thminidinput').val();
+                    if ($('#periodidcheckbox').is(":checked"))
                     {
-                        "sender:":  idCity,
-                        "timezone": "null",
-                        "sunset":   "1",
-                        "sunrise":  "1"
+                        var peridod = $('#periodidinput').val();
+                        //ptimezone, pthmax, pthmin , pperiod
+                        sendingToServer("null", thmax, thmin, peridod);
+
 
                     }
-                    sendingToServer(loginDataSend);
+                    else
+                    {
+                        var peridod = "null";
+                        //ptimezone, pthmax, pthmin , pperiod
+                        sendingToServer("null", thmax, thmin, peridod);
+
+                    }
 
                 }
                 else
                 {
                     //          0                                       0
-                    if ($('#checksunset').is(":checked")  &&   $('#checktimeZonevar').is(":checked"))
+                    if ($('#thmaxidcheckbox').is(":checked")  &&   $('#checktimeZonevar').is(":checked"))
                     {
                         var timezone = $('#timezoneid').val();
-                        var loginDataSend =
+                        var thmax = $('#thmaxidinput').val();
+                        if ($('#periodidcheckbox').is(":checked"))
                         {
-                            "sender:":  idCity,
-                            "timezone": timezone,
-                            "sunset":   "1",
-                            "sunrise":  "0"
+                            var peridod = $('#periodidinput').val();
+                            //ptimezone, pthmax, pthmin , pperiod
+                            sendingToServer(timezone, thmax, "null", peridod);
+
 
                         }
-                        sendingToServer(loginDataSend);
+                        else
+                        {
+                            var peridod = "null";
+                            //ptimezone, pthmax, pthmin , pperiod
+                            sendingToServer(timezone, thmax, "null", peridod);
+
+                        }
 
                     }
                     else
                     {
                         //          0
-                        if ($('#checksunset').is(":checked"))
+                        if ($('#thmaxidcheckbox').is(":checked"))
                         {
                             //var timezone = $('#timezoneid').val();
-                            var loginDataSend =
+                            var thmax = $('#thmaxidinput').val();
+                            //var thmin = $('#thminidinput').val();
+                            if ($('#periodidcheckbox').is(":checked"))
                             {
-                                "sender:":  idCity,
-                                "timezone": "null",
-                                "sunset":   "1",
-                                "sunrise":  "0"
+                                var peridod = $('#periodidinput').val();
+                                //ptimezone, pthmax, pthmin , pperiod
+                                sendingToServer("null", thmax, "null", peridod);
+
 
                             }
-                            sendingToServer(loginDataSend);
+                            else
+                            {
+                                var peridod = "null";
+                                //ptimezone, pthmax, pthmin , pperiod
+                                sendingToServer("null", thmax, "null", peridod);
+
+                            }
+
 
                         }
                         else
                         {
                             //          1                                       0                                       1
-                            if ($('#checksunrise').is(":checked"))
+                            if ($('#thminidcheckbox').is(":checked"))
                             {
                                 //var timezone = $('#timezoneid').val();
-                                var loginDataSend =
+                                //var thmax = $('#thmaxidinput').val();
+                                var thmin = $('#thminidinput').val();
+
+                                if ($('#periodidcheckbox').is(":checked"))
                                 {
-                                    "sender:":  idCity,
-                                    "timezone": "null",
-                                    "sunset":   "0",
-                                    "sunrise":  "1"
+                                    var peridod = $('#periodidinput').val();
+                                    //ptimezone, pthmax, pthmin , pperiod
+                                    sendingToServer("null", "null", thmin, peridod);
+
 
                                 }
-                                sendingToServer(loginDataSend);
+                                else
+                                {
+                                    var peridod = "null";
+                                    //ptimezone, pthmax, pthmin , pperiod
+                                    sendingToServer("null", "null", thmin, peridod);
+
+                                }
+
 
                             }
                             else
@@ -370,29 +415,48 @@ $(function(){
                                 if ($('#checktimeZonevar').is(":checked"))
                                 {
                                     var timezone = $('#timezoneid').val();
-                                    var loginDataSend =
+                                    //var thmax = $('#thmaxidinput').val();
+                                    //var thmin = $('#thminidinput').val();
+
+                                    if ($('#periodidcheckbox').is(":checked"))
                                     {
-                                        "sender:":  idCity,
-                                        "timezone": timezone,
-                                        "sunset":   "0",
-                                        "sunrise":  "0"
+                                        var peridod = $('#periodidinput').val();
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer(timezone, "null", "null", peridod);
+
 
                                     }
-                                    sendingToServer(loginDataSend);
+                                    else
+                                    {
+                                        var peridod = "null";
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer(timezone, "null", "null", peridod);
+
+                                    }
+
 
                                 }
                                 else
                                 {
                                     //var timezone = $('#timezoneid').val();
-                                    var loginDataSend =
+                                    //var thmax = $('#thmaxidinput').val();
+                                    //var thmin = $('#thminidinput').val();
+                                    if ($('#periodidcheckbox').is(":checked"))
                                     {
-                                        "sender:":  idCity,
-                                        "timezone": "null",
-                                        "sunset":   "0",
-                                        "sunrise":  "0"
+                                        var peridod = $('#periodidinput').val();
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer("null", "null", "null", peridod);
+
 
                                     }
-                                    sendingToServer(loginDataSend);
+                                    else
+                                    {
+                                        var peridod = "null";
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer("null", "null", "null", peridod);
+
+                                    }
+
 
                                 }
 
@@ -418,8 +482,18 @@ $(function(){
             window.location.replace(url);
 
         }
-        function sendingToServer (loginDataSend)
+        function sendingToServer (ptimezone, pthmax, pthmin , pperiod )
         {
+            var loginDataSend =
+            {
+                "sender:":  idCity,
+                "timezone": ptimezone,
+                "thmax":   pthmax,
+                "thmin":  pthmin,
+                "period":  pperiod
+
+            }
+
             $.ajax({
                 method: "post",
                 url: "/MyServlet",
@@ -449,6 +523,7 @@ $(function(){
 
 
 })
+//Prova atom
 
 /* Template for checkbox [] ^ $ */
 /*
