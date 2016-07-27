@@ -73,9 +73,9 @@
                        min="-70" max="70" required>
                 </label>
                 <div role="alert">
-                        <span  style="color:#ac2925" class="error" ng-show="thmaxidcheckbox.input.$error.required  && !checkmodelcheckthmax">
+                        <span  style="color:#ac2925" class="error" ng-show="thmaxidcheckbox.input.$error.required  && checkmodelcheckthmax">
                             Required!</span>
-                    <span  style="color:#ac2925"  class="error" ng-show="thmaxidcheckbox.input.$error.number  && !checkmodelcheckthmax">
+                    <span  style="color:#ac2925"  class="error" ng-show="thmaxidcheckbox.input.$error.number  && checkmodelcheckthmax">
                             Not valid number!</span>
                 </div>
                 </form>
@@ -96,9 +96,9 @@
                        min="-70" max="70" required>
                 </label>
                 <div role="alert">
-                        <span  style="color:#ac2925" class="error" ng-show="thmin.input.$error.required && !checkmodelcheckthmin">
+                        <span  style="color:#ac2925" class="error" ng-show="thmin.input.$error.required && checkmodelcheckthmin">
                             Required!</span>
-                    <span  style="color:#ac2925"  class="error" ng-show="thmin.input.$error.number && !checkmodelcheckthmin">
+                    <span  style="color:#ac2925"  class="error" ng-show="thmin.input.$error.number && checkmodelcheckthmin">
                             Not valid number!</span>
                 </div>
                 </form>
