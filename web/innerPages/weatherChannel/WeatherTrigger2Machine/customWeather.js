@@ -266,7 +266,7 @@ $(function(){
         else
         {
             //Brute force resolution
-            /*thmaxidcheckbox    thminidcheckbox   checktimeZonevar        DONE
+            /*weatheridcheckbox    periodidcheckbox   checktimeZonevar        DONE
                0                0               0                   *
                0                0               1                   *
                0                1               0                   *
@@ -278,134 +278,71 @@ $(function(){
             */
 
             //  sunset
-            // thmaxidcheckbox    thminidcheckbox    checktimeZonevar
+            // weatheridcheckbox    periodidcheckbox    checktimeZonevar
             //  thmaxidinput      thminidinput
 
             //          0                                       0                                       0
-            if ($('#thmaxidcheckbox').is(":checked") &&  $('#thminidcheckbox').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
+            if ($('#weatheridcheckbox').is(":checked") &&  $('#periodidcheckbox').is(":checked") &&   $('#checktimeZonevar').is(":checked"))
             {
-                var timezone = $('#timezoneid').val();
-                var thmax = $('#thmaxidinput').val();
-                var thmin = $('#thminidinput').val();
-                if ($('#periodidcheckbox').is(":checked"))
-                {
-                    var peridod = $('#periodidinput').val();
-                    //ptimezone, pthmax, pthmin , pperiod
-                    sendingToServer(timezone, thmax, thmin, peridod);
+                //pweather         pperiod,                  pzone
+                //mySelect         periodidinput            timezoneid
 
-
-                }
-                else
-                {
-                    var peridod = "null";
-                    //ptimezone, pthmax, pthmin , pperiod
-                    sendingToServer(timezone, thmax, thmin, peridod);
-
-                }
-
-                //sendingToServer(loginDataSend);
+                var pweather = $('#mySelect').val();
+                var pperiod = $('#periodidinput').val();
+                var pzone = $('#timezoneid').val();
+              
+                sendingToServer(pweather, pperiod, pzone );
 
 
             }
             else
             {
                 //          0                                       0
-                if ($('#thmaxidcheckbox').is(":checked") &&  $('#thminidcheckbox').is(":checked"))
+                if ($('#weatheridcheckbox').is(":checked") &&  $('#periodidcheckbox').is(":checked"))
                 {
-                    //var timezone = $('#timezoneid').val();
-                    var thmax = $('#thmaxidinput').val();
-                    var thmin = $('#thminidinput').val();
-                    if ($('#periodidcheckbox').is(":checked"))
-                    {
-                        var peridod = $('#periodidinput').val();
-                        //ptimezone, pthmax, pthmin , pperiod
-                        sendingToServer("null", thmax, thmin, peridod);
+                    var pweather = $('#mySelect').val();
+                    var pperiod = $('#periodidinput').val();
+                    //var pzone = $('#timezoneid').val();
 
-
-                    }
-                    else
-                    {
-                        var peridod = "null";
-                        //ptimezone, pthmax, pthmin , pperiod
-                        sendingToServer("null", thmax, thmin, peridod);
-
-                    }
+                    sendingToServer(pweather, pperiod, "null" );
 
                 }
                 else
                 {
                     //          0                                       0
-                    if ($('#thmaxidcheckbox').is(":checked")  &&   $('#checktimeZonevar').is(":checked"))
+                    if ($('#weatheridcheckbox').is(":checked")  &&   $('#checktimeZonevar').is(":checked"))
                     {
-                        var timezone = $('#timezoneid').val();
-                        var thmax = $('#thmaxidinput').val();
-                        if ($('#periodidcheckbox').is(":checked"))
-                        {
-                            var peridod = $('#periodidinput').val();
-                            //ptimezone, pthmax, pthmin , pperiod
-                            sendingToServer(timezone, thmax, "null", peridod);
+                        var pweather = $('#mySelect').val();
+                        //var pperiod = $('#periodidinput').val();
+                        var pzone = $('#timezoneid').val();
 
-
-                        }
-                        else
-                        {
-                            var peridod = "null";
-                            //ptimezone, pthmax, pthmin , pperiod
-                            sendingToServer(timezone, thmax, "null", peridod);
-
-                        }
+                        sendingToServer(pweather, "null", pzone );
 
                     }
                     else
                     {
                         //          0
-                        if ($('#thmaxidcheckbox').is(":checked"))
+                        if ($('#weatheridcheckbox').is(":checked"))
                         {
-                            //var timezone = $('#timezoneid').val();
-                            var thmax = $('#thmaxidinput').val();
-                            //var thmin = $('#thminidinput').val();
-                            if ($('#periodidcheckbox').is(":checked"))
-                            {
-                                var peridod = $('#periodidinput').val();
-                                //ptimezone, pthmax, pthmin , pperiod
-                                sendingToServer("null", thmax, "null", peridod);
 
+                            var pweather = $('#mySelect').val();
+                            //var pperiod = $('#periodidinput').val();
+                            //var pzone = $('#timezoneid').val();
 
-                            }
-                            else
-                            {
-                                var peridod = "null";
-                                //ptimezone, pthmax, pthmin , pperiod
-                                sendingToServer("null", thmax, "null", peridod);
-
-                            }
+                            sendingToServer(pweather, "null", "null" );
 
 
                         }
                         else
                         {
                             //          1                                       0                                       1
-                            if ($('#thminidcheckbox').is(":checked"))
+                            if ($('#periodidcheckbox').is(":checked"))
                             {
-                                //var timezone = $('#timezoneid').val();
-                                //var thmax = $('#thmaxidinput').val();
-                                var thmin = $('#thminidinput').val();
+                               // var pweather = $('#mySelect').val();
+                                var pperiod = $('#periodidinput').val();
+                               // var pzone = $('#timezoneid').val();
 
-                                if ($('#periodidcheckbox').is(":checked"))
-                                {
-                                    var peridod = $('#periodidinput').val();
-                                    //ptimezone, pthmax, pthmin , pperiod
-                                    sendingToServer("null", "null", thmin, peridod);
-
-
-                                }
-                                else
-                                {
-                                    var peridod = "null";
-                                    //ptimezone, pthmax, pthmin , pperiod
-                                    sendingToServer("null", "null", thmin, peridod);
-
-                                }
+                                sendingToServer("null", pperiod, "null" );
 
 
                             }
@@ -414,48 +351,23 @@ $(function(){
                                 //          1                                       1                                         0
                                 if ($('#checktimeZonevar').is(":checked"))
                                 {
-                                    var timezone = $('#timezoneid').val();
-                                    //var thmax = $('#thmaxidinput').val();
-                                    //var thmin = $('#thminidinput').val();
 
-                                    if ($('#periodidcheckbox').is(":checked"))
-                                    {
-                                        var peridod = $('#periodidinput').val();
-                                        //ptimezone, pthmax, pthmin , pperiod
-                                        sendingToServer(timezone, "null", "null", peridod);
+                                   // var pweather = $('#mySelect').val();
+                                   // var pperiod = $('#periodidinput').val();
+                                    var pzone = $('#timezoneid').val();
 
-
-                                    }
-                                    else
-                                    {
-                                        var peridod = "null";
-                                        //ptimezone, pthmax, pthmin , pperiod
-                                        sendingToServer(timezone, "null", "null", peridod);
-
-                                    }
+                                    sendingToServer("null", "null", pzone );
 
 
                                 }
                                 else
                                 {
-                                    //var timezone = $('#timezoneid').val();
-                                    //var thmax = $('#thmaxidinput').val();
-                                    //var thmin = $('#thminidinput').val();
-                                    if ($('#periodidcheckbox').is(":checked"))
-                                    {
-                                        var peridod = $('#periodidinput').val();
-                                        //ptimezone, pthmax, pthmin , pperiod
-                                        sendingToServer("null", "null", "null", peridod);
 
+                                    //var pweather = $('#mySelect').val();
+                                    //var pperiod = $('#periodidinput').val();
+                                    //var pzone = $('#timezoneid').val();
 
-                                    }
-                                    else
-                                    {
-                                        var peridod = "null";
-                                        //ptimezone, pthmax, pthmin , pperiod
-                                        sendingToServer("null", "null", "null", peridod);
-
-                                    }
+                                    sendingToServer("null", "null", "null" );
 
 
                                 }
@@ -482,15 +394,14 @@ $(function(){
             window.location.replace(url);
 
         }
-        function sendingToServer (ptimezone, pthmax, pthmin , pperiod )
+        function sendingToServer (pweather, pperiod, pzone )
         {
             var loginDataSend =
             {
-                "sender:":  idCity,
-                "timezone": ptimezone,
-                "thmax":   pthmax,
-                "thmin":  pthmin,
-                "period":  pperiod
+                "sender":  idCity,
+                "tempo": pweather,
+                "period":   pperiod,
+                "timezone":  pzone
 
             }
 
