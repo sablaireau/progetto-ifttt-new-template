@@ -43,7 +43,7 @@ iftttApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider.when('/loginPage', {
         templateUrl: 'innerPages/loginPage.html',
-
+        controller: 'loginPageController'
     });
 
     $routeProvider.when('/index/myRecipes', {
@@ -860,5 +860,13 @@ iftttApp.controller('customWeatherActionControllerTrigger4', ['$scope', '$rootSc
 
     }]);
 
+// loginPageController
+iftttApp.controller('loginPageController',  ['$scope', '$routeParams',
+    function ($scope, $rootscope, $routeParams, $http, $resource) {
 
+        $scope.loginfunc = function() {
+alert("hello");
+        }
+
+    }]);
 
