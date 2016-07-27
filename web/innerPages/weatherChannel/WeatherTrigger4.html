@@ -105,6 +105,32 @@
 
 
 
+                <form name="periodform">
+                    <br>
+                    <br>
+                    <b>Period </b>  (Abilitation):
+                    <input
+                            id="periodidcheckbox"
+                            type="checkbox"
+                            ng-model="checkmodelcheckperiod"
+
+                    >
+
+
+                    <input id="periodidinput" ng-disabled="!checkmodelcheckperiod" type="number" name="input" ng-model="trigger1input.value4"
+                           min="0" max="700" required>
+                    </label>
+                    <div role="alert">
+                        <span  style="color:#ac2925" class="error" ng-show="periodform.input.$error.required && checkmodelcheckperiod">
+                            Required!</span>
+                        <span  style="color:#ac2925"  class="error" ng-show="periodform.input.$error.number && checkmodelcheckperiod">
+                            Not valid number!</span>
+                    </div>
+                </form>
+
+
+
+
                 <!--   Time zone    --->
                 <br>
                 <br>

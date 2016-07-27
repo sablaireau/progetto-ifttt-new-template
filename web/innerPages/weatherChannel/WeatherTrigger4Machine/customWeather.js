@@ -287,15 +287,23 @@ $(function(){
                 var timezone = $('#timezoneid').val();
                 var thmax = $('#thmaxidinput').val();
                 var thmin = $('#thminidinput').val();
-                var loginDataSend =
+                if ($('#periodidcheckbox').is(":checked"))
                 {
-                    "sender:":  idCity,
-                    "timezone": timezone,
-                    "thmax":   thmax,
-                    "thmin":  thmin
+                    var peridod = $('#periodidinput').val();
+                    //ptimezone, pthmax, pthmin , pperiod
+                    sendingToServer(timezone, thmax, thmin, peridod);
+
 
                 }
-                sendingToServer(loginDataSend);
+                else
+                {
+                    var peridod = "null";
+                    //ptimezone, pthmax, pthmin , pperiod
+                    sendingToServer(timezone, thmax, thmin, peridod);
+
+                }
+
+                //sendingToServer(loginDataSend);
 
 
             }
@@ -307,15 +315,21 @@ $(function(){
                     //var timezone = $('#timezoneid').val();
                     var thmax = $('#thmaxidinput').val();
                     var thmin = $('#thminidinput').val();
-                    var loginDataSend =
+                    if ($('#periodidcheckbox').is(":checked"))
                     {
-                        "sender:":  idCity,
-                        "timezone": "null",
-                        "thmax":   thmax,
-                        "thmin":  thmin
+                        var peridod = $('#periodidinput').val();
+                        //ptimezone, pthmax, pthmin , pperiod
+                        sendingToServer("null", thmax, thmin, peridod);
+
 
                     }
-                    sendingToServer(loginDataSend);
+                    else
+                    {
+                        var peridod = "null";
+                        //ptimezone, pthmax, pthmin , pperiod
+                        sendingToServer("null", thmax, thmin, peridod);
+
+                    }
 
                 }
                 else
@@ -325,17 +339,21 @@ $(function(){
                     {
                         var timezone = $('#timezoneid').val();
                         var thmax = $('#thmaxidinput').val();
-                        //var thmin = $('#thminidinput').val();
-                        var loginDataSend =
+                        if ($('#periodidcheckbox').is(":checked"))
                         {
-                            "sender:":  idCity,
-                            "timezone": timezone,
-                            "thmax":   thmax,
-                            "thmin":  "null"
+                            var peridod = $('#periodidinput').val();
+                            //ptimezone, pthmax, pthmin , pperiod
+                            sendingToServer(timezone, thmax, "null", peridod);
+
 
                         }
-                        sendingToServer(loginDataSend);
+                        else
+                        {
+                            var peridod = "null";
+                            //ptimezone, pthmax, pthmin , pperiod
+                            sendingToServer(timezone, thmax, "null", peridod);
 
+                        }
 
                     }
                     else
@@ -346,15 +364,21 @@ $(function(){
                             //var timezone = $('#timezoneid').val();
                             var thmax = $('#thmaxidinput').val();
                             //var thmin = $('#thminidinput').val();
-                            var loginDataSend =
+                            if ($('#periodidcheckbox').is(":checked"))
                             {
-                                "sender:":  idCity,
-                                "timezone": "null",
-                                "thmax":   thmax,
-                                "thmin":  "null"
+                                var peridod = $('#periodidinput').val();
+                                //ptimezone, pthmax, pthmin , pperiod
+                                sendingToServer("null", thmax, "null", peridod);
+
 
                             }
-                            sendingToServer(loginDataSend);
+                            else
+                            {
+                                var peridod = "null";
+                                //ptimezone, pthmax, pthmin , pperiod
+                                sendingToServer("null", thmax, "null", peridod);
+
+                            }
 
 
                         }
@@ -366,15 +390,22 @@ $(function(){
                                 //var timezone = $('#timezoneid').val();
                                 //var thmax = $('#thmaxidinput').val();
                                 var thmin = $('#thminidinput').val();
-                                var loginDataSend =
+
+                                if ($('#periodidcheckbox').is(":checked"))
                                 {
-                                    "sender:":  idCity,
-                                    "timezone": "null",
-                                    "thmax":   "null",
-                                    "thmin":  thmin
+                                    var peridod = $('#periodidinput').val();
+                                    //ptimezone, pthmax, pthmin , pperiod
+                                    sendingToServer("null", "null", thmin, peridod);
+
 
                                 }
-                                sendingToServer(loginDataSend);
+                                else
+                                {
+                                    var peridod = "null";
+                                    //ptimezone, pthmax, pthmin , pperiod
+                                    sendingToServer("null", "null", thmin, peridod);
+
+                                }
 
 
                             }
@@ -386,15 +417,22 @@ $(function(){
                                     var timezone = $('#timezoneid').val();
                                     //var thmax = $('#thmaxidinput').val();
                                     //var thmin = $('#thminidinput').val();
-                                    var loginDataSend =
+
+                                    if ($('#periodidcheckbox').is(":checked"))
                                     {
-                                        "sender:":  idCity,
-                                        "timezone": timezone,
-                                        "thmax":   "null",
-                                        "thmin":  "null"
+                                        var peridod = $('#periodidinput').val();
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer(timezone, "null", "null", peridod);
+
 
                                     }
-                                    sendingToServer(loginDataSend);
+                                    else
+                                    {
+                                        var peridod = "null";
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer(timezone, "null", "null", peridod);
+
+                                    }
 
 
                                 }
@@ -403,17 +441,22 @@ $(function(){
                                     //var timezone = $('#timezoneid').val();
                                     //var thmax = $('#thmaxidinput').val();
                                     //var thmin = $('#thminidinput').val();
-                                    var loginDataSend =
+                                    if ($('#periodidcheckbox').is(":checked"))
                                     {
-                                        "sender:":  idCity,
-                                        "timezone": "null",
-                                        "thmax":   "null",
-                                        "thmin":  "null"
+                                        var peridod = $('#periodidinput').val();
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer("null", "null", "null", peridod);
+
 
                                     }
-                                    sendingToServer(loginDataSend);
+                                    else
+                                    {
+                                        var peridod = "null";
+                                        //ptimezone, pthmax, pthmin , pperiod
+                                        sendingToServer("null", "null", "null", peridod);
 
-                                    sendingToServer(loginDataSend);
+                                    }
+
 
                                 }
 
@@ -439,8 +482,18 @@ $(function(){
             window.location.replace(url);
 
         }
-        function sendingToServer (loginDataSend)
+        function sendingToServer (ptimezone, pthmax, pthmin , pperiod )
         {
+            var loginDataSend =
+            {
+                "sender:":  idCity,
+                "timezone": ptimezone,
+                "thmax":   pthmax,
+                "thmin":  pthmin,
+                "period":  pperiod
+
+            }
+
             $.ajax({
                 method: "post",
                 url: "/MyServlet",
