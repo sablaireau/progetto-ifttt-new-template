@@ -278,7 +278,7 @@ $(function(){
             */
 
 
-
+            // thmaxidcheckbox    thminidcheckbox    checktimeZonevar
 
             //          0                                       0                                       0
             if ($('#checksunset').is(":checked") &&  $('#checksunrise').is(":checked") &&   $('#checktimeZonevar').is(":checked"))

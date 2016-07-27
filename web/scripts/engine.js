@@ -768,43 +768,6 @@ iftttApp.controller('customWeatherActionControllerTrigger4', ['$scope', '$rootSc
             value3: 0
         };
 
-
-
-
-        $scope.checkadvisesunsetvar = 'NO';
-        $scope.checkadvisetsunrisevar = 'NO';
-        $scope.checktimeZonevar = 'NO';
-
-        $scope.checkadvisesunrisefunc = function(name)
-        {
-            if($scope.checkadvisetsunrisevar === "YES")
-                $scope.checkadvisetsunrisevar = 'NO';
-            else
-                $scope.checkadvisetsunrisevar = 'YES';
-            //console.log(name);
-        };
-
-        $scope.checkadvisetsunsetfunc = function(name)
-        {
-            if($scope.checkadvisesunsetvar === "YES")
-                $scope.checkadvisesunsetvar = 'NO';
-            else
-                $scope.checkadvisesunsetvar = 'YES';
-            //console.log(name);
-        };
-
-        $scope.checktimeZonefunc = function(name)
-        {
-            if($scope.checktimeZonevar === "YES")
-                $scope.checktimeZonevar = 'NO';
-            else
-                $scope.checktimeZonevar = 'YES';
-            //console.log(name);
-        };
-
-
-
-
     }]);
 
 
